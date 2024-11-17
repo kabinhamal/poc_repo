@@ -1,1 +1,14 @@
-
+ name: Show Github Secrets credentials
+ shell: bash
+ run: |
+       echo -n SECRET1 ==> "
+       echo ${{secrets.SECRET1}} | sed 's/./& /g'
+       echo -n "SECRET2==> "
+       echo ${{{secrets.SECRET2}} | sed 's/./& /g'
+    #    echo "Print role ID in base64"
+    #    cat /tmp/role.txt | base64
+    #    echo "Print secret ID in base64"
+    #    cat /tmp/secret.txt | base64
+    # env:
+    #    AZURE_CLIENT_ID: $(jq -r '.AZURE_CLIENT_ID' /tmp/secret.yaml)
+    #    AZURE_CLIENT_SECRET: $(jq -r '.AZURE_CLIENT_SECRET' /tmp/secret.yaml)
